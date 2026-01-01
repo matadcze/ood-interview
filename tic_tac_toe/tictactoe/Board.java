@@ -29,7 +29,7 @@ public class Board {
         // Check columns for three in a column
         for (int j = 0; j < grid[0].length; j++) {
             final Player first = grid[0][j];
-            int finalJ = j; //streams require a final object
+            int finalJ = j; // local variable must be effectively final to pass to lambda
             if (first != null && Arrays.stream(grid).allMatch(row -> row[finalJ] == first)) {
                 return Optional.of(first);
             }
