@@ -22,13 +22,13 @@ class ScoreTracker {
         }
     }
 
-    // Returns a map of players sorted by their ratings in descending order
-    public Map<Player, Integer> getTopPlayers() {
+    // Returns a list of players sorted by their ratings in descending order
+    public List<Player> getTopPlayers() {
         return playerRatings.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .map(Map.Entry::getKey)
-                .collect(Collectors.toMap(player -> player, player -> playerRatings.get(player)));
+                .collect(Collectors.toList());
     }
 
     // Returns the rank of a player (1-based) based on their rating
